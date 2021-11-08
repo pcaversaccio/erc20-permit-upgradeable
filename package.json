@@ -1,37 +1,57 @@
 {
   "name": "upgradeable-permit-erc20",
   "version": "1.0.0",
-  "description": "UUPS and transparent upgradeable and meta-transaction-enabled ERC20 smart contract.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Permit-enabled upgradeable ERC20 smart contract template.",
+  "author": "Pascal Marco Caversaccio",
+  "license": "MIT",
+  "keywords": [
+    "ethereum",
+    "blockchain",
+    "solidity",
+    "erc20",
+    "openzeppelin",
+    "upgradable-smart-contracts"
+  ],
+  "homepage": "https://github.com/pcaversaccio/erc20-permit-upgradeable#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pcaversaccio/upgradeable-permit-erc20.git"
+    "url": "https://github.com/pcaversaccio/erc20-permit-upgradeable.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pcaversaccio/upgradeable-permit-erc20/issues"
+    "url": "https://github.com/pcaversaccio/erc20-permit-upgradeable/issues"
   },
-  "homepage": "https://github.com/pcaversaccio/upgradeable-permit-erc20#readme",
+  "scripts": {
+    "help": "npx hardhat help",
+    "accounts": "npx hardhat accounts",
+    "node": "npx hardhat node",
+    "clean": "npx hardhat clean",
+    "test": "npx hardhat test",
+    "coverage": "npx hardhat coverage",
+    "compile": "npx hardhat compile",
+    "lint:check": "npx eslint **/*.{js,ts}",
+    "lint:fix": "npx eslint **/*.{js,ts} --fix",
+    "prettier:check": "prettier -c **/*.{js,ts,md}",
+    "prettier:fix": "prettier --write **/*.{js,ts,md}",
+    "solhint:check": "npx solhint 'contracts/**/*.sol'",
+    "solhint:fix": "npx solhint 'contracts/**/*.sol' --fix"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-etherscan": "^2.1.7",
-    "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts-upgradeable": "^4.3.2",
     "@typechain/ethers-v5": "^8.0.2",
     "@typechain/hardhat": "^3.0.0",
-    "@types/chai": "^4.2.22",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "^16.11.6",
-    "chai": "^4.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.3.0",
     "dotenv": "^10.0.0",
-    "ethers": "^5.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "hardhat": "^2.6.8",
     "hardhat-gas-reporter": "^1.0.4",
+    "prettier-eslint": "^13.0.0",
+    "solhint": "^3.3.6",
     "solidity-coverage": "^0.7.17",
     "ts-node": "^10.4.0",
     "typechain": "^6.0.2",

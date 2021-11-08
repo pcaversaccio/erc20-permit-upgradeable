@@ -103,12 +103,14 @@ dist
 # TernJS port file
 .tern-port
 
+#General
 node_modules
 .env
 coverage
 coverage.json
 typechain
 typechain-types
+bin
 
 #Hardhat files
 cache

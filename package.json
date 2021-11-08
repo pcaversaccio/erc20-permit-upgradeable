@@ -1,7 +1,7 @@
 {
-  "name": "upgradeable-permit-erc20",
+  "name": "erc20-permit-upgradeable",
   "version": "1.0.0",
-  "description": "Permit-enabled upgradeable ERC20 smart contract template.",
+  "description": "Permit-enabled, upgradeable ERC20 smart contract template.",
   "author": "Pascal Marco Caversaccio",
   "license": "MIT",
   "keywords": [
@@ -10,7 +10,7 @@
     "solidity",
     "erc20",
     "openzeppelin",
-    "upgradable-smart-contracts"
+    "upgradeable-smart-contracts"
   ],
   "homepage": "https://github.com/pcaversaccio/erc20-permit-upgradeable#readme",
   "repository": {

@@ -1,0 +1,23 @@
+{
+  "name": "upgradeable-permit-erc20",
+  "version": "1.0.0",
+  "description": "UUPS and transparent upgradeable and meta-transaction-enabled ERC20 smart contract.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pcaversaccio/upgradeable-permit-erc20.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pcaversaccio/upgradeable-permit-erc20/issues"
+  },
+  "homepage": "https://github.com/pcaversaccio/upgradeable-permit-erc20#readme",
+  "devDependencies": {
+    "hardhat": "^2.6.8"
+  }
+}

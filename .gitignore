@@ -115,3 +115,6 @@ bin
 #Hardhat files
 cache
 artifacts
+
+# OpenZeppelin
+.openzeppelin

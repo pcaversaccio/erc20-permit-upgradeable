@@ -22,9 +22,9 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
   - [`ProxyAdmin`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/ProxyAdmin.sol): [`0x9c4A96b2c68466731741fdF1f862Ca4d079E3484`](https://kovan.etherscan.io/address/0x9c4a96b2c68466731741fdf1f862ca4d079e3484)
   - [`TransparentUpgradeableProxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/TransparentUpgradeableProxy.sol): [`0xeCd59F79F1eF196758BD30614E4B82A97e4Dcc6F`](https://kovan.etherscan.io/address/0xecd59f79f1ef196758bd30614e4b82a97e4dcc6f)
 - **Goerli:**
-  - Implementation contract v1 ([`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol): [`TBD`](TBD)
-  - [`ProxyAdmin`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/ProxyAdmin.sol): [`TBD`](TBD)
-  - [`TransparentUpgradeableProxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/TransparentUpgradeableProxy.sol): [`TBD`](TBD)
+  - Implementation contract v1 ([`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol): [`0xeD1d5e84F1d2947509923Ac55AEb538684015cb2`](https://goerli.etherscan.io/address/0xed1d5e84f1d2947509923ac55aeb538684015cb2)
+  - [`ProxyAdmin`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/ProxyAdmin.sol): [`0xCbD441DCD38c3f251D9768e994df660e79717D08`](https://goerli.etherscan.io/address/0xcbd441dcd38c3f251d9768e994df660e79717d08)
+  - [`TransparentUpgradeableProxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/TransparentUpgradeableProxy.sol): [`0x9d7654b4f0BB4fA85Cf09c08fC15Fd655C27d5a9`](https://goerli.etherscan.io/address/0x9d7654b4f0bb4fa85cf09c08fc15fd655c27d5a9)
 
 <sup>\*</sup>_Built-in flash loans added._
 
@@ -41,8 +41,8 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
   - Implementation contract v1 ([`ERC20PermitUUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol): [`0x4387D89ee7464733476d2b872aF204CF97909CA4`](https://kovan.etherscan.io/address/0x4387d89ee7464733476d2b872af204cf97909ca4)
   - [`ERC1967Proxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol): [`0xe47C5491CeE40852e521BB1680055d3A1084fd7e`](https://kovan.etherscan.io/address/0xe47c5491cee40852e521bb1680055d3a1084fd7e)
 - **Goerli:**
-  - Implementation contract v1 ([`ERC20PermitUUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol): [TBD](TBD)
-  - [`ERC1967Proxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol): [`TBD`](TBD)
+  - Implementation contract v1 ([`ERC20PermitUUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol): [`0x4add5dF921b3535Ae2960d5640075796B50C2DAf`](https://goerli.etherscan.io/address/0x4add5df921b3535ae2960d5640075796b50c2daf)
+  - [`ERC1967Proxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol): [`0x407fdf54f6CfDbf0d61f61D0cCCCBc4C746F303b`](https://goerli.etherscan.io/address/0x407fdf54f6cfdbf0d61f61d0ccccbc4c746f303b)
 
 <sup>\*</sup>_Built-in flash loans added._
 

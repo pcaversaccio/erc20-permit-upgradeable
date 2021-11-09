@@ -14,10 +14,19 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
   - [`ProxyAdmin`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/ProxyAdmin.sol): [`0x02E4d446c4f2BECddC425E92bFA828242eb598d3`](https://rinkeby.etherscan.io/address/0x02e4d446c4f2becddc425e92bfa828242eb598d3)
   - [`TransparentUpgradeableProxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/TransparentUpgradeableProxy.sol): [`0x703D6644Ee4708411cb22374505994Ec1CB15386`](https://rinkeby.etherscan.io/address/0x703d6644ee4708411cb22374505994ec1cb15386)
 - **Ropsten:**
+  - Implementation contract v1 ([`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol)): [`TBD`](TBD)
+  - [`ProxyAdmin`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/ProxyAdmin.sol): [`TBD`](TBD)
+  - [`TransparentUpgradeableProxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/TransparentUpgradeableProxy.sol): [`TBD`](TBD)
 - **Kovan:**
+  - Implementation contract v1 ([`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol)): [`TBD`](TBD)
+  - [`ProxyAdmin`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/ProxyAdmin.sol): [`TBD`](TBD)
+  - [`TransparentUpgradeableProxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/TransparentUpgradeableProxy.sol): [`TBD`](TBD)
 - **Goerli:**
+  - Implementation contract v1 ([`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol)): [`TBD`](TBD)
+  - [`ProxyAdmin`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/ProxyAdmin.sol): [`TBD`](TBD)
+  - [`TransparentUpgradeableProxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/transparent/TransparentUpgradeableProxy.sol): [`TBD`](TBD)
 
-<sup>\*</sup> Built-in flash loans added.
+<sup>\*</sup>_Built-in flash loans added._
 
 ### `UUPSUpgradeable`
 
@@ -26,10 +35,28 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
   - Implementation contract v2<sup>\*</sup> ([`NewTokenContractUUPS`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/mocks/NewTokenContractUUPS.sol)): [`0x9caba639e5C5D8c83133F424B13cf08CDDd2C206`](https://rinkeby.etherscan.io/address/0x9caba639e5c5d8c83133f424b13cf08cddd2c206)
   - [`ERC1967Proxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol): [`0xED050957Dee292038bE7bEd5542f8887188a3cef`](https://rinkeby.etherscan.io/address/0xed050957dee292038be7bed5542f8887188a3cef)
 - **Ropsten:**
+  - Implementation contract v1 ([`ERC20PermitUUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol)): [TBD](TBD)
+  - [`ERC1967Proxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol): [`TBD`](TBD)
 - **Kovan:**
+  - Implementation contract v1 ([`ERC20PermitUUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol)): [TBD](TBD)
+  - [`ERC1967Proxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol): [`TBD`](TBD)
 - **Goerli:**
+  - Implementation contract v1 ([`ERC20PermitUUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol)): [TBD](TBD)
+  - [`ERC1967Proxy`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol): [`TBD`](TBD)
 
-<sup>\*</sup> Built-in flash loans added.
+<sup>\*</sup>_Built-in flash loans added._
+
+## References
+
+[1] https://eips.ethereum.org/EIPS/eip-1822
+
+[2] https://blog.openzeppelin.com/the-transparent-proxy-pattern
+
+[3] https://docs.openzeppelin.com/contracts/4.x/upgradeable
+
+[4] https://docs.openzeppelin.com/openzeppelin/upgrades
+
+[5] https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
 
 ## TO DOs
 

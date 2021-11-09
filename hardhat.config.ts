@@ -7,6 +7,7 @@ import "hardhat-gas-reporter";
 import "solidity-coverage";
 import "@nomiclabs/hardhat-etherscan";
 import "@openzeppelin/hardhat-upgrades";
+import "@nomiclabs/hardhat-truffle5";
 
 dotenv.config();
 

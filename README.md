@@ -60,6 +60,5 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
 
 ## TO DOs
 
-- Further test deployments
 - Unit Tests
 - Proper Documentation

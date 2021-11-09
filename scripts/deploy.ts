@@ -19,18 +19,16 @@ async function main() {
   );
 
   // Upgrading `ERC20PermitTransparentUpgradeable`
-  // const UpgradeTransparent = await ethers.getContractFactory(
-  //   "ERC20PermitTransparentUpgradeable"
-  // );
-  // const upgradedTransparent = await upgrades.upgradeProxy(
-  //   baseFactoryTransparent.address,
-  //   UpgradeTransparent
-  // );
+  const UpgradeTransparent = await ethers.getContractFactory(
+    "NewTokenContractTransparent"
+  );
+  // eslint-disable-next-line no-unused-vars
+  const upgradedTransparent = await upgrades.upgradeProxy(
+    baseFactoryTransparent.address, // Set Ethereum address here
+    UpgradeTransparent
+  );
 
-  // console.log(
-  //   "ERC20PermitTransparentUpgradeable upgraded with transaction hash:",
-  //   upgradedTransparent.deployTransaction.hash
-  // );
+  console.log("ERC20PermitTransparentUpgradeable upgraded");
 
   // Deploying `ERC20PermitUUPSUpgradeable`
   const BaseFactoryUUPS = await ethers.getContractFactory(
@@ -48,18 +46,14 @@ async function main() {
   );
 
   // Upgrading `ERC20PermitUUPSUpgradeable`
-  // const UpgradeUUPS = await ethers.getContractFactory(
-  //   "ERC20PermitUUPSUpgradeable"
-  // );
-  // const upgradedUUPS = await upgrades.upgradeProxy(
-  //   baseFactoryUUPS.address,
-  //   UpgradeUUPS
-  // );
+  const UpgradeUUPS = await ethers.getContractFactory("NewTokenContractUUPS");
+  // eslint-disable-next-line no-unused-vars
+  const upgradedUUPS = await upgrades.upgradeProxy(
+    baseFactoryUUPS.address, // Set Ethereum address here
+    UpgradeUUPS
+  );
 
-  // console.log(
-  //   "ERC20PermitUUPSUpgradeable upgraded with transaction hash:",
-  //   upgradedUUPS.deployTransaction.hash
-  // );
+  console.log("ERC20PermitUUPSUpgradeable upgraded");
 }
 
 main().catch((error) => {

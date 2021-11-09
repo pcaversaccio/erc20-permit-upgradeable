@@ -1,5 +1,6 @@
 # Permit-Enabled, Upgradeable ERC20 Smart Contract Template
 
+[![build status](https://github.com/pcaversaccio/erc20-permit-upgradeable/actions/workflows/test-contracts.yml/badge.svg)](https://github.com/pcaversaccio/erc20-permit-upgradeable/actions)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Ethereum Test Network Deployments

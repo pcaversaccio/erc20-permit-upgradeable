@@ -4,9 +4,9 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## `TransparentUpgradeableProxy`
-
+TBD
 ## `UUPSUpgradeable`
-
+TBD
 ## Ethereum Test Network Deployments
 
 The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol) and [`ERC20PermitUUPSUpgradeable.sol`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol) have been deployed across all the major Ethereum test networks:
@@ -63,14 +63,3 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
 
 [5] https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
 
-## TO DOs
-
-- Unit Tests
-  - Permit
-  - Init
-  - Access Control
-  - Pausable
-  - Burnable
-  - ERC20
-  - UUPS
-- Proper Documentation

@@ -3,11 +3,15 @@
 [![build status](https://github.com/pcaversaccio/erc20-permit-upgradeable/actions/workflows/test-contracts.yml/badge.svg)](https://github.com/pcaversaccio/erc20-permit-upgradeable/actions)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
+## `TransparentUpgradeableProxy`
+
+## `UUPSUpgradeable`
+
 ## Ethereum Test Network Deployments
 
 The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol) and [`ERC20PermitUUPSUpgradeable.sol`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol) have been deployed across all the major Ethereum test networks:
 
-### `TransparentUpgradeableProxy`
+### `TransparentUpgradeableProxy` Deployments
 
 - **Rinkeby:**
   - Implementation contract v1 ([`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol): [`0x2e007edDdea022EB3EC639B09C90FFf18BEDbb6D`](https://rinkeby.etherscan.io/address/0x2e007edddea022eb3ec639b09c90fff18bedbb6d)
@@ -29,7 +33,7 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
 
 <sup>\*</sup>_Built-in flash loans added._
 
-### `UUPSUpgradeable`
+### `UUPSUpgradeable` Deployments
 
 - **Rinkeby:**
   - Implementation contract v1 ([`ERC20PermitUUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol): [`0x5A1353dbecef5b9599E63224a2642000E69A40FE`](https://rinkeby.etherscan.io/address/0x5a1353dbecef5b9599e63224a2642000e69a40fe)
@@ -62,4 +66,11 @@ The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com
 ## TO DOs
 
 - Unit Tests
+  - Permit
+  - Init
+  - Access Control
+  - Pausable
+  - Burnable
+  - ERC20
+  - UUPS
 - Proper Documentation

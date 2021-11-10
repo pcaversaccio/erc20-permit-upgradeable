@@ -33,12 +33,12 @@
     "deploy:ropsten": "npx hardhat run --network ropsten scripts/deploy.ts",
     "deploy:kovan": "npx hardhat run --network kovan scripts/deploy.ts",
     "deploy:goerli": "npx hardhat run --network goerli scripts/deploy.ts",
-    "lint:check": "npm run prettier:check && npm run solhint:check && npx eslint **/*.{js,ts}",
-    "lint:fix": "npm run prettier:fix && npm run solhint:fix && npx eslint **/*.{js,ts} --fix",
     "prettier:check": "prettier -c **/*.{js,ts,md,sol}",
     "prettier:fix": "prettier --write **/*.{js,ts,md,sol}",
     "solhint:check": "npx solhint 'contracts/**/*.sol'",
-    "solhint:fix": "npx solhint 'contracts/**/*.sol' --fix"
+    "solhint:fix": "npx solhint 'contracts/**/*.sol' --fix",
+    "lint:check": "npm run prettier:check && npm run solhint:check && npx eslint **/*.{js,ts}",
+    "lint:fix": "npm run prettier:fix && npm run solhint:fix && npx eslint **/*.{js,ts} --fix"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

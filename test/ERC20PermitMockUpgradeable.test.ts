@@ -11,9 +11,7 @@ const { MAX_UINT256 } = constants;
 
 // eslint-disable-next-line node/no-extraneous-require
 const { fromRpcSig } = require("ethereumjs-util");
-// eslint-disable-next-line node/no-extraneous-require
 const ethSigUtil = require("eth-sig-util");
-// eslint-disable-next-line node/no-missing-require
 const Wallet = require("ethereumjs-wallet").default;
 
 const ERC20PermitMock = artifacts.require("ERC20PermitMockUpgradeableWithInit");
@@ -31,8 +29,8 @@ const Permit = [
 contract("ERC20PermitUpgradeable", function (accounts) {
   const [initialHolder, spender] = accounts;
 
-  const name = "My Token";
-  const symbol = "MTKN";
+  const name = "The Real Dogecoin Token";
+  const symbol = "WAGMI";
   const version = "1";
 
   const initialSupply = new BN(100);
@@ -44,10 +42,6 @@ contract("ERC20PermitUpgradeable", function (accounts) {
       initialHolder,
       initialSupply
     );
-
-    // We get the chain id from the contract because Ganache (used for coverage) does not return the same chain id
-    // from within the EVM as from the JSON RPC interface.
-    // See https://github.com/trufflesuite/ganache-core/issues/515
     this.chainId = await this.token.getChainId();
   });
 

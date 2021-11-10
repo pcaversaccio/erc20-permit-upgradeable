@@ -1,23 +1,20 @@
 name: Test smart contracts
 
-# Controls when the action will run 
 on: [push, pull_request]
+
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
 
 jobs:
   unit:
-    # The type of runner that the job will run on
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os:
           - ubuntu-latest
-          # - macos-latest
-          # - windows-latest
         node_version:
           - 14
-          # - 15
-        # architecture:
-          # - x64
 
     steps:
       - name: Checkout
@@ -25,9 +22,6 @@ jobs:
 
       - name: Cache node modules
         uses: actions/cache@v2
-        # We add a new step to our job that tracks our package-lock.json for any changes. 
-        # If the job doesn't see any differences, then it can use the npm cache from a 
-        # previous build, which speeds things up quite a bit.
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

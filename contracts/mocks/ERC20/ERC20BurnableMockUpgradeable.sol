@@ -4,26 +4,35 @@ pragma solidity ^0.8.9;
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract ERC20BurnableMockUpgradeable is Initializable, ERC20BurnableUpgradeable {
-    function __ERC20BurnableMock_init(
-        string memory name,
-        string memory symbol,
-        address initialAccount,
-        uint256 initialBalance
-    ) internal initializer {
-        __Context_init_unchained();
-        __ERC20_init_unchained(name, symbol);
-        __ERC20Burnable_init_unchained();
-        __ERC20BurnableMock_init_unchained(name, symbol, initialAccount, initialBalance);
-    }
+contract ERC20BurnableMockUpgradeable is
+  Initializable,
+  ERC20BurnableUpgradeable
+{
+  function __ERC20BurnableMock_init(
+    string memory name,
+    string memory symbol,
+    address initialAccount,
+    uint256 initialBalance
+  ) internal initializer {
+    __Context_init_unchained();
+    __ERC20_init_unchained(name, symbol);
+    __ERC20Burnable_init_unchained();
+    __ERC20BurnableMock_init_unchained(
+      name,
+      symbol,
+      initialAccount,
+      initialBalance
+    );
+  }
 
-    function __ERC20BurnableMock_init_unchained(
-        string memory name,
-        string memory symbol,
-        address initialAccount,
-        uint256 initialBalance
-    ) internal initializer {
-        _mint(initialAccount, initialBalance);
-    }
-    uint256[50] private __gap;
+  function __ERC20BurnableMock_init_unchained(
+    string memory name,
+    string memory symbol,
+    address initialAccount,
+    uint256 initialBalance
+  ) internal initializer {
+    _mint(initialAccount, initialBalance);
+  }
+
+  uint256[50] private __gap;
 }

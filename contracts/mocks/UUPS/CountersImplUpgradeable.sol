@@ -5,30 +5,31 @@ import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 contract CountersImplUpgradeable is Initializable {
-    function __CountersImpl_init() internal initializer {
-        __CountersImpl_init_unchained();
-    }
+  function __CountersImpl_init() internal initializer {
+    __CountersImpl_init_unchained();
+  }
 
-    function __CountersImpl_init_unchained() internal initializer {
-    }
-    using CountersUpgradeable for CountersUpgradeable.Counter;
+  function __CountersImpl_init_unchained() internal initializer {}
 
-    CountersUpgradeable.Counter private _counter;
+  using CountersUpgradeable for CountersUpgradeable.Counter;
 
-    function current() public view returns (uint256) {
-        return _counter.current();
-    }
+  CountersUpgradeable.Counter private _counter;
 
-    function increment() public {
-        _counter.increment();
-    }
+  function current() public view returns (uint256) {
+    return _counter.current();
+  }
 
-    function decrement() public {
-        _counter.decrement();
-    }
+  function increment() public {
+    _counter.increment();
+  }
 
-    function reset() public {
-        _counter.reset();
-    }
-    uint256[49] private __gap;
+  function decrement() public {
+    _counter.decrement();
+  }
+
+  function reset() public {
+    _counter.reset();
+  }
+
+  uint256[49] private __gap;
 }

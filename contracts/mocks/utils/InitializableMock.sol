@@ -1,29 +1,29 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 contract InitializableMock is Initializable {
-    bool public initializerRan;
-    uint256 public x;
+  bool public initializerRan;
+  uint256 public x;
 
-    function initialize() public initializer {
-        initializerRan = true;
-    }
+  function initialize() public initializer {
+    initializerRan = true;
+  }
 
-    function initializeNested() public initializer {
-        initialize();
-    }
+  function initializeNested() public initializer {
+    initialize();
+  }
 
-    function initializeWithX(uint256 _x) public payable initializer {
-        x = _x;
-    }
+  function initializeWithX(uint256 _x) public payable initializer {
+    x = _x;
+  }
 
-    function nonInitializable(uint256 _x) public payable {
-        x = _x;
-    }
+  function nonInitializable(uint256 _x) public payable {
+    x = _x;
+  }
 
-    function fail() public pure {
-        require(false, "InitializableMock forced failure");
-    }
+  function fail() public pure {
+    require(false, "InitializableMock forced failure");
+  }
 }

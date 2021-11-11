@@ -89,8 +89,9 @@ contract MyContract is Initializable {
 
 ## Modifying Your Contracts
 
-When writing new versions of your contracts, either due to new features or bug fixing, there is an additional restriction to observe: 
-- you **cannot** change the order in which the contract state variables are declared, 
+When writing new versions of your contracts, either due to new features or bug fixing, there is an additional restriction to observe:
+
+- you **cannot** change the order in which the contract state variables are declared,
 - **nor** their type!
 
 You can read more about the reasons behind this restriction in [Proxies](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies).
@@ -105,17 +106,17 @@ The function `__{ContractName}_init_unchained` found in every contract is the in
 
 ### Storage Gaps
 
-You may notice that every OpenZeppelin contract includes a state variable named `__gap`. This is empty reserved space in storage that is put in place in Upgradeable contracts. It allows us to freely add new state variables in the future without compromising the storage compatibility with existing deployments.
+You may notice that every OpenZeppelin contract includes a state variable named `__gap`. This is empty reserved space in storage that is put in place in upgradeable contracts. It allows us to freely add new state variables in the future without compromising the storage compatibility with existing deployments.
 
-It isn’t safe to simply add a state variable because it "shifts down" all of the state variables below in the inheritance chain. This makes the storage layouts incompatible, as explained in [Writing Upgradeable Contracts](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable#modifying-your-contracts). The size of the `__gap` array is calculated so that the amount of storage used by a contract always adds up to the same number (in this case 50 storage slots).
+It isn't safe to simply add a state variable because it _shifts down_ all of the state variables below in the inheritance chain. This makes the storage layouts incompatible, as explained in [Writing Upgradeable Contracts](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable#modifying-your-contracts). The size of the `__gap` array is calculated so that the amount of storage used by a contract always adds up to the same number (in this case 50 storage slots).
 
 ### Deployments
 
-I make use of OpenZeppelin's [upgrade plugin](https://docs.openzeppelin.com/upgrades-plugins/1.x) for [Hardhat](https://docs.openzeppelin.com/upgrades-plugins/1.x/api-hardhat-upgrades). You can find a sample deployment and upgrade script in the file [`deploy.ts`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/scripts/deploy.ts). It's strongly recommended to conduct first test upgrades on test networks!
+I make use of OpenZeppelin's [upgrade plugin](https://docs.openzeppelin.com/upgrades-plugins/1.x) for [Hardhat](https://docs.openzeppelin.com/upgrades-plugins/1.x/api-hardhat-upgrades). You can find a sample deployment and upgrade script in the file [`deploy.ts`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/scripts/deploy.ts). It is strongly recommended to test upgrades first on test networks!
 
 ### Unit Tests
 
-Since [Hardhat](https://hardhat.org) implements great features for Solidity debugging like Solidity stack traces, console.log, and explicit error messages when transactions fail, we leverage [Hardhat](https://hardhat.org) for testing:
+Since [Hardhat](https://hardhat.org) implements great features for Solidity debugging like Solidity stack traces, `console.log`, and explicit error messages when transactions fail, we leverage [Hardhat](https://hardhat.org) for testing:
 
 ```bash
 npm run test

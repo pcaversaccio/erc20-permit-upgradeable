@@ -25,9 +25,9 @@ async function main() {
     baseFactoryTransparent.address
   );
 
-  /*********************************************
-   * Uncomment if you want to perfom an upgrade*
-   *********************************************/
+  /**********************************************
+   * Uncomment if you want to perfom an upgrade *
+   **********************************************/
   // Upgrading `ERC20PermitTransparentUpgradeable`
   // const UpgradeTransparent = await ethers.getContractFactory(
   //   "NewTokenContractTransparent"
@@ -62,9 +62,9 @@ async function main() {
     baseFactoryUUPS.address
   );
 
-  /*********************************************
-   * Uncomment if you want to perfom an upgrade*
-   *********************************************/
+  /**********************************************
+   * Uncomment if you want to perfom an upgrade *
+   **********************************************/
   // Upgrading `ERC20PermitUUPSUpgradeable`
   // const UpgradeUUPS = await ethers.getContractFactory("NewTokenContractUUPS");
   // eslint-disable-next-line no-unused-vars

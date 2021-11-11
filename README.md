@@ -49,7 +49,7 @@ The _transparent-based, permit-enabled smart contract template_ contains the fol
 
 > **Caveat:** In the context of upgradeable contracts, implementation contracts should move the code within the constructor to a regular `initializer` function and have this function called whenever the proxy links to this logic contract. The main `initialize()` function of the template also contains the _name_ and _symbol_ of the ERC20 token contract, as well as the string _name_ used for the `permit` function. Make sure you adjust these parameters accordingly.
 
-## UUPS-Based, Permit-Enabled Smart Contract Template:[`UUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol)
+## UUPS-Based, Permit-Enabled Smart Contract Template: [`UUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol)
 
 The _transparent-based, permit-enabled smart contract template_ contains the following features:
 

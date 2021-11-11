@@ -38,29 +38,31 @@ By default, the upgrade functionality included in [`UUPSUpgradeable`](https://do
 
 ## Transparent-Based, Permit-Enabled Smart Contract Template: [`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol)
 
-The transparent-based, permit-enabled smart contract template contains the following features:
+The _transparent-based, permit-enabled smart contract template_ contains the following features:
 
-- `mintable`: Privileged accounts will be able to create more supply. Note, the current template implementation mints 100 tokens an initialisation.
+- `mintable`: Privileged accounts will be able to create more supply. **Note:** The current template implementation mints 100 tokens at initialisation.
 - `burnable`: Token holders will be able to destroy their tokens.
 - `pausable`: Privileged accounts will be able to pause the functionality marked as `whenNotPaused`. Useful for emergency response.
 - `permit`: Without paying gas, token holders will be able to allow third parties to transfer from their account.
-- `roles` for access control. Flexible mechanism with a separate role for each privileged action. A role can have many authorised accounts.
-- `transparent` upgrade patter. Uses more complex proxy with higher overhead, requires less changes in your contract.
-  > **Caveat:** In the context of upgradeable contracts, implementation contracts should move the code within the constructor to a regular `initializer` function and have this function called whenever the proxy links to this logic contract. The main `initialize()` function of the template also contains the _name_ and _symbol_ of the ERC20 token contract, as well as the string _name_ used for the `permit` function. Make sure you adjust these parameters accordingly.
+- `roles` (for access control): Flexible mechanism with a separate role for each privileged action. A role can have many authorised accounts.
+- `transparent` (upgrade pattern): Uses more complex proxy with higher overhead, requires less changes in your contract.
+
+> **Caveat:** In the context of upgradeable contracts, implementation contracts should move the code within the constructor to a regular `initializer` function and have this function called whenever the proxy links to this logic contract. The main `initialize()` function of the template also contains the _name_ and _symbol_ of the ERC20 token contract, as well as the string _name_ used for the `permit` function. Make sure you adjust these parameters accordingly.
 
 ## UUPS-Based, Permit-Enabled Smart Contract Template:[`UUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol)
 
-The transparent-based, permit-enabled smart contract template contains the following features:
+The _transparent-based, permit-enabled smart contract template_ contains the following features:
 
-- `mintable`: Privileged accounts will be able to create more supply. Note, the current template implementation mints 100 tokens an initialisation.
+- `mintable`: Privileged accounts will be able to create more supply. **Note:** The current template implementation mints 100 tokens at initialisation.
 - `burnable`: Token holders will be able to destroy their tokens.
 - `pausable`: Privileged accounts will be able to pause the functionality marked as `whenNotPaused`. Useful for emergency response.
 - `permit`: Without paying gas, token holders will be able to allow third parties to transfer from their account.
-- `roles` for access control. Flexible mechanism with a separate role for each privileged action. A role can have many authorised accounts.
-- `UUPS` upgrade pattern. Uses simpler proxy with less overhead, requires including extra code in your contract. Allows flexibility for authorising upgrades.
-  > **Caveat:** In the context of upgradeable contracts, implementation contracts should move the code within the constructor to a regular `initializer` function and have this function called whenever the proxy links to this logic contract. The main `initialize()` function of the template also contains the _name_ and _symbol_ of the ERC20 token contract, as well as the string _name_ used for the `permit` function. Make sure you adjust these parameters accordingly.
+- `roles` (for access control): Flexible mechanism with a separate role for each privileged action. A role can have many authorised accounts.
+- `UUPS` (upgrade pattern): Uses simpler proxy with less overhead, requires including extra code in your contract. Allows flexibility for authorising upgrades.
 
-### Upgrading an Upgradeable Contract
+> **Caveat:** In the context of upgradeable contracts, implementation contracts should move the code within the constructor to a regular `initializer` function and have this function called whenever the proxy links to this logic contract. The main `initialize()` function of the template also contains the _name_ and _symbol_ of the ERC20 token contract, as well as the string _name_ used for the `permit` function. Make sure you adjust these parameters accordingly.
+
+## Upgrading an Upgradeable Contract
 
 Let's assume you have deployed one of the two template smart contracts and you want to include a further feature such as flash minting (lending tokens without requiring collateral as long as they're returned in the same transaction). Since the proxy contract already called `initialize` within the context of the first implementation contract, we must create a new function or modifier called `upgradeToV2` that allows initialising the required parameters for the flash mint feature. This could look like the following as function (not considering all further contract-specific dependencies):
 
@@ -85,25 +87,25 @@ contract MyContract is Initializable {
 
 ```
 
-### Modifying Your Contracts
+## Modifying Your Contracts
 
 When writing new versions of your contracts, either due to new features or bug fixing, there is an additional restriction to observe: you cannot change the order in which the contract state variables are declared, nor their type. You can read more about the reasons behind this restriction by learning about in [Proxies](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies).
 
-### Further Notes
+## Further Notes
 
-#### Multiple Inheritance
+### Multiple Inheritance
 
 Initialiser functions are not linearised by the compiler like constructors. Because of this, each `__{ContractName}_init` function embeds the linearised calls to all parent initialisers. As a consequence, calling two of these `init` functions can potentially initialise the same contract twice.
 
 The function `__{ContractName}_init_unchained` found in every contract is the initialiser function minus the calls to parent initialisers, and can be used to avoid the double initialisation problem, but doing this manually is not recommended. We hope to be able to implement safety checks for this in future versions of the Upgrades Plugins.
 
-#### Storage Gaps
+### Storage Gaps
 
 You may notice that every contract includes a state variable named `__gap`. This is empty reserved space in storage that is put in place in Upgradeable contracts. It allows us to freely add new state variables in the future without compromising the storage compatibility with existing deployments.
 
 It isn’t safe to simply add a state variable because it "shifts down" all of the state variables below in the inheritance chain. This makes the storage layouts incompatible, as explained in [Writing Upgradeable Contracts](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable#modifying-your-contracts). The size of the `__gap` array is calculated so that the amount of storage used by a contract always adds up to the same number (in this case 50 storage slots).
 
-#### Deployments
+### Deployments
 
 I make use of OpenZeppelin's [upgrade plugin](https://docs.openzeppelin.com/upgrades-plugins/1.x) for [Hardhat](https://docs.openzeppelin.com/upgrades-plugins/1.x/api-hardhat-upgrades). You can find a sample deployment and upgrade script in the file [`deploy.ts`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/scripts/deploy.ts). It's strongly recommended to conduct first test upgrades on test networks!
 

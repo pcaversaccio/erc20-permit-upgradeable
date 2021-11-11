@@ -62,7 +62,7 @@ The transparent-based, permit-enabled smart contract template contains the follo
 
 ### Upgrading an Upgradeable Contract
 
-Let's assume you have deployed one of the two template smart contracts and you want to include a further feature such as flash minting (lending tokens without requiring collateral as long as they're returned in the same transaction). Since the proxy contract already called `initialize` within the context of the first implementation contract, we must create a new function or modifier called `upgradeToV2` that allows initialising the required parameters for the flash mint feature. This could look like the following as function:
+Let's assume you have deployed one of the two template smart contracts and you want to include a further feature such as flash minting (lending tokens without requiring collateral as long as they're returned in the same transaction). Since the proxy contract already called `initialize` within the context of the first implementation contract, we must create a new function or modifier called `upgradeToV2` that allows initialising the required parameters for the flash mint feature. This could look like the following as function (not considering all further contract-specific dependencies):
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -106,6 +106,12 @@ It isn’t safe to simply add a state variable because it "shifts down" all of t
 #### Deployments
 
 I make use of OpenZeppelin's [upgrade plugin](https://docs.openzeppelin.com/upgrades-plugins/1.x) for [Hardhat](https://docs.openzeppelin.com/upgrades-plugins/1.x/api-hardhat-upgrades). You can find a sample deployment and upgrade script in the file [`deploy.ts`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/scripts/deploy.ts). It's strongly recommended to conduct first test upgrades on test networks!
+
+### Unit Tests
+Since [Hardhat](https://hardhat.org) implements great features for Solidity debugging like Solidity stack traces, console.log, and explicit error messages when transactions fail, we leverage [Hardhat](https://hardhat.org) for testing:
+```bash
+npm run test
+```
 
 ## Ethereum Test Network Deployments
 

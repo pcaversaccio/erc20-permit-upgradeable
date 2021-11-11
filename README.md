@@ -14,7 +14,7 @@ In order to avoid clashes with the storage variables of the implementation contr
 - [`ERC1967Upgrade`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#ERC1967Upgrade): Internal functions to get and set the storage slots defined in EIP1967.
 - [`ERC1967Proxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#ERC1967Proxy): A proxy using EIP1967 storage slots. This proxy contract is **not** upgradeable by default.
 
-There are two alternative ways to add upgradeability to an ERC1967 proxy. Their differences are explained in [Transparent vs UUPS Proxies](#transparent-vs-uups):
+There are two alternative ways to add upgradeability to an ERC1967 proxy. Their differences are explained in [Transparent vs UUPS Proxies](#transparent-vs-uups-proxies):
 
 - [`TransparentUpgradeableProxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#TransparentUpgradeableProxy): A proxy with a built-in _admin_ and _upgrade_ interface.
 - [`UUPSUpgradeable`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#UUPSUpgradeable): An upgradeability mechanism to be included in the _implementation_ for an ERC1967 proxy.
@@ -108,10 +108,14 @@ It isn’t safe to simply add a state variable because it "shifts down" all of t
 I make use of OpenZeppelin's [upgrade plugin](https://docs.openzeppelin.com/upgrades-plugins/1.x) for [Hardhat](https://docs.openzeppelin.com/upgrades-plugins/1.x/api-hardhat-upgrades). You can find a sample deployment and upgrade script in the file [`deploy.ts`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/scripts/deploy.ts). It's strongly recommended to conduct first test upgrades on test networks!
 
 ### Unit Tests
+
 Since [Hardhat](https://hardhat.org) implements great features for Solidity debugging like Solidity stack traces, console.log, and explicit error messages when transactions fail, we leverage [Hardhat](https://hardhat.org) for testing:
+
 ```bash
 npm run test
 ```
+
+> The unit tests are based on OpenZeppelin's available unit tests.
 
 ## Ethereum Test Network Deployments
 

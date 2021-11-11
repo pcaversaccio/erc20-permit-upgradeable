@@ -91,20 +91,21 @@ contract MyContract is Initializable {
 
 When writing new versions of your contracts, either due to new features or bug fixing, there is an additional restriction to observe: 
 - you **cannot** change the order in which the contract state variables are declared, 
-- **nor** their type! 
+- **nor** their type!
+
 You can read more about the reasons behind this restriction in [Proxies](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies).
 
 ## Further Notes
 
 ### Multiple Inheritance
 
-Initialiser functions are not linearised by the compiler like constructors. Because of this, each `__{ContractName}_init` function embeds the linearised calls to all parent initialisers. As a consequence, calling two of these `init` functions can potentially initialise the same contract twice.
+Initialiser functions are _not linearised_ by the compiler like constructors. Because of this, each `__{ContractName}_init` function embeds the linearised calls to all parent initialisers. As a consequence, calling two of these `init` functions can potentially initialise the same contract twice.
 
-The function `__{ContractName}_init_unchained` found in every contract is the initialiser function minus the calls to parent initialisers, and can be used to avoid the double initialisation problem, but doing this manually is not recommended. We hope to be able to implement safety checks for this in future versions of the Upgrades Plugins.
+The function `__{ContractName}_init_unchained` found in every contract is the initialiser function minus the calls to parent initialisers, and can be used to avoid the double initialisation problem, but doing this manually is not recommended.
 
 ### Storage Gaps
 
-You may notice that every contract includes a state variable named `__gap`. This is empty reserved space in storage that is put in place in Upgradeable contracts. It allows us to freely add new state variables in the future without compromising the storage compatibility with existing deployments.
+You may notice that every OpenZeppelin contract includes a state variable named `__gap`. This is empty reserved space in storage that is put in place in Upgradeable contracts. It allows us to freely add new state variables in the future without compromising the storage compatibility with existing deployments.
 
 It isn’t safe to simply add a state variable because it "shifts down" all of the state variables below in the inheritance chain. This makes the storage layouts incompatible, as explained in [Writing Upgradeable Contracts](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable#modifying-your-contracts). The size of the `__gap` array is calculated so that the amount of storage used by a contract always adds up to the same number (in this case 50 storage slots).
 

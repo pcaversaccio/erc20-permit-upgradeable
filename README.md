@@ -21,7 +21,7 @@ There are two alternative ways to add upgradeability to an ERC1967 proxy. Their 
 
 ## Transparent vs UUPS Proxies
 
-> _Disclaimer:_ This section is based on [OpenZeppelin's documentation](https://docs.openzeppelin.com/contracts/4.x/api/proxy#transparent-vs-uups). I strongly recommend anyone starting to use upgradeable smart contracts to read OpenZeppelin's documentation carefully. You can find more links to get started in the [References](#references) section below.
+> _Disclaimer:_ This section is based on [OpenZeppelin's documentation](https://docs.openzeppelin.com/contracts/4.x/api/proxy#transparent-vs-uups). I strongly recommend anyone who is starting to use upgradeable smart contracts to read OpenZeppelin's documentation carefully. You can find more links to get started in the [References](#references) section below.
 
 The original proxies included in OpenZeppelin followed the [Transparent Proxy Pattern](https://blog.openzeppelin.com/the-transparent-proxy-pattern). While this pattern is still provided, OpenZeppelin's recommendation is now shifting towards **UUPS proxies**, which are both lightweight and versatile. The name UUPS comes from [EIP1822](https://eips.ethereum.org/EIPS/eip-1822), which first documented the pattern.
 
@@ -57,7 +57,7 @@ The transparent-based, permit-enabled smart contract template contains the follo
 - `pausable`: Privileged accounts will be able to pause the functionality marked as `whenNotPaused`. Useful for emergency response.
 - `permit`: Without paying gas, token holders will be able to allow third parties to transfer from their account.
 - `roles` for access control. Flexible mechanism with a separate role for each privileged action. A role can have many authorised accounts.
-- `UUPS` upgrade pattern. Uses simpler proxy with less overhead, requires including extra code in your contract. Allows flexibility for authorizing upgrades.
+- `UUPS` upgrade pattern. Uses simpler proxy with less overhead, requires including extra code in your contract. Allows flexibility for authorising upgrades.
   > **Caveat:** In the context of upgradeable contracts, implementation contracts should move the code within the constructor to a regular `initializer` function and have this function called whenever the proxy links to this logic contract. The main `initialize()` function of the template also contains the _name_ and _symbol_ of the ERC20 token contract, as well as the string _name_ used for the `permit` function. Make sure you adjust these parameters accordingly.
 
 ### Upgrading an Upgradeable Contract
@@ -93,9 +93,9 @@ When writing new versions of your contracts, either due to new features or bug f
 
 #### Multiple Inheritance
 
-Initializer functions are not linearized by the compiler like constructors. Because of this, each `__{ContractName}_init` function embeds the linearized calls to all parent initializers. As a consequence, calling two of these `init` functions can potentially initialize the same contract twice.
+Initialiser functions are not linearised by the compiler like constructors. Because of this, each `__{ContractName}_init` function embeds the linearised calls to all parent initialisers. As a consequence, calling two of these `init` functions can potentially initialise the same contract twice.
 
-The function `__{ContractName}_init_unchained` found in every contract is the initializer function minus the calls to parent initializers, and can be used to avoid the double initialization problem, but doing this manually is not recommended. We hope to be able to implement safety checks for this in future versions of the Upgrades Plugins.
+The function `__{ContractName}_init_unchained` found in every contract is the initialiser function minus the calls to parent initialisers, and can be used to avoid the double initialisation problem, but doing this manually is not recommended. We hope to be able to implement safety checks for this in future versions of the Upgrades Plugins.
 
 #### Storage Gaps
 

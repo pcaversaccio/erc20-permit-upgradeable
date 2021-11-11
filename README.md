@@ -3,10 +3,38 @@
 [![build status](https://github.com/pcaversaccio/erc20-permit-upgradeable/actions/workflows/test-contracts.yml/badge.svg)](https://github.com/pcaversaccio/erc20-permit-upgradeable/actions)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
-## `TransparentUpgradeableProxy`
-TBD
-## `UUPSUpgradeable`
-TBD
+This repository provides two _upgradeable_ [ERC20](https://eips.ethereum.org/EIPS/eip-20) smart contract templates that include the new function [`permit`](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20Permit-permit-address-address-uint256-uint256-uint8-bytes32-bytes32-), which allows users to modify the allowance mapping using a signed message (via [`secp256k1`](https://en.bitcoin.it/wiki/Secp256k1) signatures), instead of through `msg.sender`. Or in other words, the [`permit`](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20Permit-permit-address-address-uint256-uint256-uint8-bytes32-bytes32-) method, which can be used to change an account's [`ERC-20`](https://eips.ethereum.org/EIPS/eip-20) allowance (see [`IERC20.allowance`](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20-allowance-address-address-)) by presenting a message signed by the account. By not relying on [`IERC20.approve`](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#IERC20-approve-address-uint256-), the token holder account doesn't need to send a transaction, and thus is not required to hold ETH at all.
+
+The templates are built on an abstract base contract:
+- [`Proxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#Proxy): Abstract contract implementing the core delegation functionality.
+
+In order to avoid clashes with the storage variables of the implementation contract behind a proxy, I use [EIP1967](https://eips.ethereum.org/EIPS/eip-1967) storage slots:
+- [`ERC1967Upgrade`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#ERC1967Upgrade): Internal functions to get and set the storage slots defined in EIP1967.
+- [`ERC1967Proxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#ERC1967Proxy): A proxy using EIP1967 storage slots. Not upgradeable by default.
+
+There are two alternative ways to add upgradeability to an ERC1967 proxy. Their differences are explained in [Transparent vs UUPS Proxies](#transparent-vs-uups):
+- [`TransparentUpgradeableProxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#TransparentUpgradeableProxy): A proxy with a built in admin and upgrade interface.
+- [`UUPSUpgradeable`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#UUPSUpgradeable): An upgradeability mechanism to be included in the implementation for an ERC1967 proxy.
+
+## Transparent vs UUPS Proxies
+> _Disclaimer:_ This section is based on [OpenZeppelin's documentation](https://docs.openzeppelin.com/contracts/4.x/api/proxy#transparent-vs-uups). I strongly recommend anyone starting to use upgradeable smart contracts to read OpenZeppelin's documentation carefully. You can find more links to get started in the [References](#references) section below.
+
+The original proxies included in OpenZeppelin followed the [Transparent Proxy Pattern](https://blog.openzeppelin.com/the-transparent-proxy-pattern). While this pattern is still provided, our recommendation is now shifting towards UUPS proxies, which are both lightweight and versatile. The name UUPS comes from [EIP1822](https://eips.ethereum.org/EIPS/eip-1822), which first documented the pattern.
+
+While both of these share the same interface for upgrades, in UUPS proxies the upgrade is handled by the implementation, and can eventually be removed. Transparent proxies, on the other hand, include the upgrade and admin logic in the proxy itself. This means [`TransparentUpgradeableProxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#TransparentUpgradeableProxy) is more expensive to deploy than what is possible with UUPS proxies.
+
+UUPS proxies are implemented using an [`ERC1967Proxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#ERC1967Proxy). Note that this proxy is not by itself upgradeable. It is the role of the implementation to include, alongside the contract’s logic, all the code necessary to update the implementation’s address that is stored at a specific slot in the proxy’s storage space. This is where the [`UUPSUpgradeable`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#UUPSUpgradeable) contract comes in. Inheriting from it (and overriding the [`_authorizeUpgrade`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#UUPSUpgradeable-_authorizeUpgrade-address-) function with the relevant access control mechanism) will turn your contract into a UUPS compliant implementation.
+
+Note that since both proxies use the same storage slot for the implementation address, using a UUPS compliant implementation with a [`TransparentUpgradeableProxy`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#TransparentUpgradeableProxy) might allow non-admins to perform upgrade operations.
+
+By default, the upgrade functionality included in [`UUPSUpgradeable`](https://docs.openzeppelin.com/contracts/4.x/api/proxy#UUPSUpgradeable) contains a security mechanism that will prevent any upgrades to a non UUPS compliant implementation. This prevents upgrades to an implementation contract that wouldn’t contain the necessary upgrade mechanism, as it would lock the upgradeability of the proxy forever. This security mechanism can be bypassed by either of:
+- Adding a flag mechanism in the implementation that will disable the upgrade function when triggered.
+- Upgrading to an implementation that features an upgrade mechanism without the additional security check, and then upgrading again to another implementation without the upgrade mechanism.
+
+## [`ERC20PermitTransparentUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol)
+
+
+## [`UUPSUpgradeable`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol)
 ## Ethereum Test Network Deployments
 
 The smart contracts [`ERC20PermitTransparentUpgradeable.sol`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitTransparentUpgradeable.sol) and [`ERC20PermitUUPSUpgradeable.sol`](https://github.com/pcaversaccio/erc20-permit-upgradeable/blob/main/contracts/ERC20PermitUUPSUpgradeable.sol) have been deployed across all the major Ethereum test networks:

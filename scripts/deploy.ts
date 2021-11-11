@@ -6,9 +6,9 @@ async function main() {
    *********************** TRANSPARENTUPGRADEABLEPROXY ***********************
    ***************************************************************************/
 
-  /***************************************
-   * Comment out if you perfom an upgrade*
-   ***************************************/
+  /****************************************
+   * Comment out if you perfom an upgrade *
+   ****************************************/
   // Deploying `ERC20PermitTransparentUpgradeable`
   const BaseFactoryTransparent = await ethers.getContractFactory(
     "ERC20PermitTransparentUpgradeable"
@@ -44,9 +44,9 @@ async function main() {
    ***************************** UUPSUPGRADEABLE *****************************
    ***************************************************************************/
 
-  /***************************************
-   * Comment out if you perfom an upgrade*
-   ***************************************/
+  /****************************************
+   * Comment out if you perfom an upgrade *
+   ****************************************/
   // Deploying `ERC20PermitUUPSUpgradeable`
   const BaseFactoryUUPS = await ethers.getContractFactory(
     "ERC20PermitUUPSUpgradeable"

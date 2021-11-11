@@ -64,7 +64,7 @@ The _transparent-based, permit-enabled smart contract template_ contains the fol
 
 ## Upgrading an Upgradeable Contract
 
-Let's assume you have deployed one of the two template smart contracts and you want to include a further feature such as flash minting (lending tokens without requiring collateral as long as they're returned in the same transaction). Since the proxy contract already called `initialize` within the context of the first implementation contract, we must create a new function or modifier called `upgradeToV2` that allows initialising the required parameters for the flash mint feature. This could look like the following as function (not considering all further contract-specific dependencies):
+Let's say you have deployed one of the two template smart contracts and want to add another feature, e.g. _flash minting_ (i.e. lending tokens without requiring collateral as long as they're returned in the same transaction). Since the proxy contract has already called `initialize` in the context of the first implementation contract, we will need to create a new function or modifier called `upgradeToV2` that will allow the initialisation of the required parameters for the flash mint (or any newly added) feature. This could look as follows as a function (without taking into account all other contract-specific dependencies):
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -89,7 +89,10 @@ contract MyContract is Initializable {
 
 ## Modifying Your Contracts
 
-When writing new versions of your contracts, either due to new features or bug fixing, there is an additional restriction to observe: you cannot change the order in which the contract state variables are declared, nor their type. You can read more about the reasons behind this restriction by learning about in [Proxies](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies).
+When writing new versions of your contracts, either due to new features or bug fixing, there is an additional restriction to observe: 
+- you **cannot** change the order in which the contract state variables are declared, 
+- **nor** their type! 
+You can read more about the reasons behind this restriction in [Proxies](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies).
 
 ## Further Notes
 
